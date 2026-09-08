@@ -29,54 +29,73 @@ python3 -m http.server 8899 --directory public
 # open http://127.0.0.1:8899
 ```
 
-## Deploy — Ubuntu, one command
+## Deploy — Ubuntu on EC2
 
-`setup-ubuntu.sh` provisions the whole box: nginx, the clone, the vhost, TLS, the
-firewall, and a `myprofile-update` command for later. Run it **on the server as root**.
+The script assumes **the repo is already cloned on the instance** and deploys from
+that clone. It never overwrites your working tree unless you pass `--pull`.
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ksanjiv05/myprofile/main/deploy/setup-ubuntu.sh -o setup.sh
-sudo bash setup.sh -d yourdomain.com -e you@yourdomain.com
+ssh ubuntu@your-ec2
+cd ~/myprofile
+sudo bash deploy/setup-ubuntu.sh -d yourdomain.com -e you@yourdomain.com
 ```
+
+It finds the clone from its own location, so run it from inside the repo. Everything
+is idempotent — re-run it whenever.
 
 | flag | meaning |
 |---|---|
-| `-d, --domain` | domain to serve; omit to serve on the bare IP |
+| `-d, --domain` | domain to serve; omit to serve on the EC2 public IP |
 | `-e, --email` | Let's Encrypt expiry notices |
-| `-b, --branch` | branch to track (default `main`) |
+| `-s, --src` | path to the clone, if auto-detection misses it |
+| `--pull` | `git fetch` + `reset --hard` before deploying (discards local changes) |
 | `--no-tls` | skip certbot |
 | `--no-www` | do not also serve `www.` |
 
-It is idempotent — re-run it any time. If the domain does not resolve yet it says so,
-serves over HTTP, and tells you the certbot command to run once DNS has propagated.
+### Before certbot will work — the EC2 gotcha
+
+Let's Encrypt validates over HTTP-01, which means it connects **back to your instance
+from the internet**. Two things must be true, and neither is under the script's control:
+
+1. **Security group** allows inbound TCP **80 and 443** from `0.0.0.0/0`.
+   Ubuntu's `ufw` is inactive on stock EC2 images — the security group is the firewall.
+2. **The A record points at this instance.** The script reads the instance's public
+   IPv4 from EC2 metadata (IMDSv2) and compares it to what your domain resolves to.
+   On a mismatch it tells you both addresses and skips certbot rather than burning a
+   Let's Encrypt rate limit on a request that cannot succeed.
+
+Attach an **Elastic IP** — a stop/start otherwise changes the public IP and breaks
+both the DNS record and the certificate renewal.
+
+When DNS is ready:
+
+```sh
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+```
+
+Renewal is automatic; the certbot package installs its own systemd timer.
 
 ### Shipping new commits
 
 ```sh
-git push            # from your laptop
-ssh you@vps myprofile-update
+git push                                  # from your laptop
+ssh ubuntu@your-ec2 sudo myprofile-update --pull
 ```
 
-`myprofile-update` fetches the branch, republishes `public/`, re-compresses, and
-reloads nginx — about a second, no downtime. It refuses to reload if `nginx -t` fails.
-
-### Alternative: push from your laptop instead of pulling
-
-If you would rather not have git on the server:
-
-```sh
-./deploy/deploy.sh user@your-vps
-```
+`myprofile-update` republishes `public/`, re-compresses, and reloads nginx — about a
+second, no downtime. It refuses to reload if `nginx -t` fails. Without `--pull` it
+republishes whatever is in the clone, which is handy for testing an edit on the box.
 
 ### Verified
 
-`setup-ubuntu.sh` was run end-to-end in Ubuntu 24.04 and 22.04 containers. Checked:
-homepage 200, assets 200, deep paths falling back to the app shell, `gzip_static`
-serving pre-compressed files (app.css 21,127 → 5,600 bytes), the security headers,
-dotfiles returning 403, idempotent re-runs, and `myprofile-update`.
+Run end-to-end in Ubuntu 24.04 and 22.04 containers, from a clone at
+`/home/ubuntu/myprofile`, exactly as documented above. Checked: homepage and assets
+200, deep paths falling back to the app shell, `gzip_static` serving pre-compressed
+files (app.css 21,127 → 5,600 bytes), security headers, dotfiles 403, the clone left
+untouched, idempotent re-runs, and `myprofile-update` picking up local edits.
 
-`nginx.conf` and `Caddyfile` in this folder are standalone references for a manual
-setup; `setup-ubuntu.sh` generates its own vhost and is the canonical one.
+`nginx.conf` and `Caddyfile` here are standalone references for a manual setup;
+`setup-ubuntu.sh` generates its own vhost and that one is canonical.
 
 ## Self-hosting the fonts (optional, removes the only external request)
 
