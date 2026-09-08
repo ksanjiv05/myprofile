@@ -2,6 +2,8 @@
 
 Personal site for **Sanjiv Kumar Pandit** — AI & full-stack engineer.
 
+**Live: https://imsanjiv.in**
+
 Static HTML, CSS and vanilla JS. **No framework, no build step, no runtime.**
 ~17KB gzipped, six files, zero production dependencies — it is designed to run on a
 1GB VPS where nginx serves files off disk and nothing else is running.

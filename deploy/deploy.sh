@@ -3,7 +3,7 @@
 set -euo pipefail
 
 HOST="${1:-user@your-vps}"          # TODO: your host
-REMOTE="${2:-/var/www/sanjiv}"
+REMOTE="${2:-/var/www/myprofile}"
 LOCAL="$(cd "$(dirname "$0")/.." && pwd)/public/"
 
 echo "→ $LOCAL  ==>  $HOST:$REMOTE"

@@ -1,10 +1,10 @@
 # Caddy alternative — automatic HTTPS, one binary, ~20MB RSS.
 #   sudo cp deploy/Caddyfile /etc/caddy/Caddyfile
-#   sudo rsync -a --delete public/ /var/www/sanjiv/
+#   sudo rsync -a --delete public/ /var/www/myprofile/
 #   sudo systemctl reload caddy
 
-sanjiv.dev, www.sanjiv.dev {          # TODO: your domain
-    root * /var/www/sanjiv
+imsanjiv.in, www.imsanjiv.in {
+    root * /var/www/myprofile
     encode zstd gzip
     try_files {path} /index.html
     file_server

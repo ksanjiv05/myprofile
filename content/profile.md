@@ -16,7 +16,8 @@ independently checkable · ❗️TODO — still missing.
 | GitHub | `ksanjiv05` | ✅ |
 | Studio / label | Axion Labs | 🟡 inferred from bundle id `com.sanjiv.axionlabs.neuron` — confirm |
 | Positioning | AI & full-stack engineer | ✅ matches your stack + shipped apps |
-| Wordmark in design | `SANJIV.DEV` | ❗️TODO confirm real domain |
+| Domain | `imsanjiv.in` | ✅ confirmed |
+| Header wordmark | `SANJIV PANDIT` | ✅ the name, not the URL — the address bar already shows the domain |
 | Location + timezone | Bengaluru · IST — *assumed* | ❗️TODO confirm |
 | Public email | — | ❗️TODO |
 | LinkedIn | — | ❗️TODO |

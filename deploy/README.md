@@ -37,7 +37,7 @@ that clone. It never overwrites your working tree unless you pass `--pull`.
 ```sh
 ssh ubuntu@your-ec2
 cd ~/myprofile
-sudo bash deploy/setup-ubuntu.sh -d yourdomain.com -e you@yourdomain.com
+sudo bash deploy/setup-ubuntu.sh -d imsanjiv.in -e you@imsanjiv.in
 ```
 
 It finds the clone from its own location, so run it from inside the repo. Everything
@@ -70,7 +70,7 @@ both the DNS record and the certificate renewal.
 When DNS is ready:
 
 ```sh
-sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+sudo certbot --nginx -d imsanjiv.in -d www.imsanjiv.in
 ```
 
 Renewal is automatic; the certbot package installs its own systemd timer.
