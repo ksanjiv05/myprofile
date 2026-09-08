@@ -29,21 +29,54 @@ python3 -m http.server 8899 --directory public
 # open http://127.0.0.1:8899
 ```
 
-## Deploy
+## Deploy — Ubuntu, one command
+
+`setup-ubuntu.sh` provisions the whole box: nginx, the clone, the vhost, TLS, the
+firewall, and a `myprofile-update` command for later. Run it **on the server as root**.
 
 ```sh
-# 1. one-time on the VPS
-sudo mkdir -p /var/www/sanjiv && sudo chown -R "$USER" /var/www/sanjiv
-sudo cp deploy/nginx.conf /etc/nginx/sites-available/sanjiv
-sudo ln -s /etc/nginx/sites-available/sanjiv /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl reload nginx
-sudo certbot --nginx -d yourdomain.com          # free TLS
+curl -fsSL https://raw.githubusercontent.com/ksanjiv05/myprofile/main/deploy/setup-ubuntu.sh -o setup.sh
+sudo bash setup.sh -d yourdomain.com -e you@yourdomain.com
+```
 
-# 2. every time after that
+| flag | meaning |
+|---|---|
+| `-d, --domain` | domain to serve; omit to serve on the bare IP |
+| `-e, --email` | Let's Encrypt expiry notices |
+| `-b, --branch` | branch to track (default `main`) |
+| `--no-tls` | skip certbot |
+| `--no-www` | do not also serve `www.` |
+
+It is idempotent — re-run it any time. If the domain does not resolve yet it says so,
+serves over HTTP, and tells you the certbot command to run once DNS has propagated.
+
+### Shipping new commits
+
+```sh
+git push            # from your laptop
+ssh you@vps myprofile-update
+```
+
+`myprofile-update` fetches the branch, republishes `public/`, re-compresses, and
+reloads nginx — about a second, no downtime. It refuses to reload if `nginx -t` fails.
+
+### Alternative: push from your laptop instead of pulling
+
+If you would rather not have git on the server:
+
+```sh
 ./deploy/deploy.sh user@your-vps
 ```
 
-Prefer Caddy? `deploy/Caddyfile` does the same with automatic HTTPS built in.
+### Verified
+
+`setup-ubuntu.sh` was run end-to-end in Ubuntu 24.04 and 22.04 containers. Checked:
+homepage 200, assets 200, deep paths falling back to the app shell, `gzip_static`
+serving pre-compressed files (app.css 21,127 → 5,600 bytes), the security headers,
+dotfiles returning 403, idempotent re-runs, and `myprofile-update`.
+
+`nginx.conf` and `Caddyfile` in this folder are standalone references for a manual
+setup; `setup-ubuntu.sh` generates its own vhost and is the canonical one.
 
 ## Self-hosting the fonts (optional, removes the only external request)
 
