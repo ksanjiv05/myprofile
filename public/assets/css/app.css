@@ -436,3 +436,14 @@ img, svg, canvas, pre { max-width: 100%; }
 
 /* Footer links were 28px at every width; the 34px rule only applied on mobile. */
 .foot__col a { min-height: 36px; display: flex; align-items: center; }
+
+/* The About plate's texture ran the full height, straight under the corner labels —
+   the ASCII field made "OPEN TO AI / FULL-STACK ROLES" hard to read. Hold the texture
+   inside the ruled band so the labels sit on clean paper, as in the Pencil mock. */
+.plate--about .ascii,
+.plate--about canvas.pat--halftone {
+  top: 38px;
+  bottom: 56px;
+  height: auto;
+}
+.plate--about .ascii { padding: 6px 18px; }

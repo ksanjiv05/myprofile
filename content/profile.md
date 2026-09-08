@@ -114,17 +114,13 @@ These are my words, rewritten to match AI work. Confirm or replace:
 - **C / DELIVERY — "Ship it observable."** A feature is not done at merge; it is done
   when a trace proves it behaved in production.
 
-## About — narrative 🟡
+## About — narrative ✅ your words
 
-Para 1 (AI): LLM applications end to end — RAG retrieval, agent and multi-agent
-orchestration with LangChain and LangGraph, MCP servers, and a local-LLM app that runs
-the model on the handset. Comfortable under the hood: tokenisation, embeddings,
-attention and the transformer maths, not just the SDK surface.
+Heading: **I like problems that stay solved.**
 
-Para 2 (product): The other half is shipping. Three apps live across the App Store and
-Google Play, a wearable in progress that captures audio and answers questions about it
-entirely on-device, a node-based calculation canvas with a formula engine written from
-scratch, and a long stretch of MERN and Fastify backend work underneath all of it.
+Para 1: I build LLM applications end to end: RAG retrieval, agent and multi-agent orchestration with LangChain and LangGraph, MCP servers, and local-LLM applications that run models directly on the handset instead of relying on a server. I’m comfortable under the hood — tokenization, vector embeddings, attention, and transformer mathematics — not just at the SDK layer. That depth is often what separates a demo from something that holds up when faced with real questions.
+
+Para 2: The other half is shipping. Three apps are live across the App Store and Google Play, a wearable is in progress that captures audio and answers questions about it entirely on-device, and a node-based calculation canvas has a formula engine written from scratch. Underneath it all is a long stretch of MERN and Fastify backend work.
 
 ## Working history
 
