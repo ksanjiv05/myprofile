@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sanjiv Kumar Pandit · AI & full-stack engineer</title>
+<meta name="description" content="AI and full-stack engineer. RAG pipelines, multi-agent orchestration and on-device LLMs — plus the apps and backends they ship in.">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141310" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Sanjiv Kumar Pandit · AI & full-stack engineer">
+<meta property="og:description" content="Three apps live on the App Store and Google Play. RAG, agents, on-device LLMs.">
+<meta property="og:type" content="website">
+
+<!-- Set the theme before first paint so there is no flash. -->
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%2314130f'/></svg>">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#/" aria-label="Home">
+      <span class="brand__mark"></span>
+      <span class="brand__name">SANJIV.DEV</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="#/work">Work</a>
+      <a class="nav__link" href="#/about">About</a>
+      <a class="nav__link" href="https://github.com/ksanjiv05" target="_blank" rel="noopener noreferrer">Apps</a>
+    </nav>
+    <div class="nav__tools">
+      <button class="icon-btn" id="theme" type="button" aria-label="Toggle theme"></button>
+      <button class="icon-btn" id="burger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu" aria-label="Mobile">
+  <a href="#/">Home</a>
+  <a href="#/work">Work</a>
+  <a href="#/about">About</a>
+  <a href="https://github.com/ksanjiv05" target="_blank" rel="noopener noreferrer">GitHub</a>
+</nav>
+
+<main id="view"></main>
+
+<footer class="foot band--soft">
+  <div class="wrap">
+    <div class="foot__cols">
+      <div class="foot__col">
+        <a class="brand" href="#/"><span class="brand__mark"></span><span class="brand__name">SANJIV.DEV</span></a>
+        <p style="margin-top:12px;color:var(--ink-500);font-size:var(--fs-14)">
+          AI &amp; full-stack engineer. Retrieval, agents, and the apps they ship in.</p>
+      </div>
+      <div class="foot__col">
+        <span class="meta">SITE</span>
+        <a href="#/">Home</a><a href="#/work">Work</a><a href="#/about">About</a>
+      </div>
+      <div class="foot__col">
+        <span class="meta">ELSEWHERE</span>
+        <a href="https://github.com/ksanjiv05" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="#" data-todo="linkedin">LinkedIn</a>
+        <a href="#" data-todo="email">Email</a>
+      </div>
+      <div class="foot__col">
+        <span class="meta">COLOPHON</span>
+        <span class="foot__note">Geist · Inter · IBM Plex Mono</span>
+        <span class="foot__note">Paper #FAF9F6 · Ink #14130F</span>
+        <span class="foot__note">Corner radius: 0px</span>
+      </div>
+    </div>
+    <div class="foot__bar">
+      <span class="meta">© 2026 SANJIV KUMAR PANDIT — ALL RIGHTS RESERVED</span>
+      <span class="meta">BUILT IN THE OPEN  ·  NO FRAMEWORK  ·  LIGHT / DARK</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/patterns.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+/* ============================================================
+   Paper · Ink — Digital Pattern
+   Single source of truth for the visual system.
+   Never hardcode a hex outside this file.
+   ============================================================ */
+
+/* ---------- 1. Tokens ---------- */
+
+:root {
+  color-scheme: light dark;
+
+  /* Paper (grounds) */
+  --paper-0: #faf9f6;
+  --paper-1: #f3f1ea;
+  --paper-2: #e9e6db;
+
+  /* Ink (marks) */
+  --ink-900: #14130f;
+  --ink-700: #3b3831;
+  --ink-500: #6c685e;
+  --ink-300: #a9a395;
+  --ink-inverse: #faf9f6;
+
+  /* Lines + accents */
+  --rule: #d6d2c4;
+  --stamp: #c0362c;
+  --blueprint: #26386e;
+
+  /* Type */
+  --font-display: Geist, "Geist Sans", Inter, system-ui, -apple-system, sans-serif;
+  --font-body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --fs-11: 0.6875rem;  --fs-12: 0.75rem;   --fs-14: 0.875rem;
+  --fs-16: 1rem;       --fs-18: 1.125rem;  --fs-20: 1.25rem;
+  --fs-25: 1.5625rem;  --fs-31: 1.9375rem; --fs-39: 2.4375rem;
+  --fs-49: 3.0625rem;  --fs-61: 3.8125rem;
+
+  --lh-display: 1.06;
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+  --tracking-label: 0.1em;
+
+  /* Space — 8px baseline */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+  --s-6: 24px;  --s-8: 32px;  --s-12: 48px; --s-16: 64px;
+  --s-24: 96px; --s-32: 128px;
+
+  /* Geometry — the whole point */
+  --radius: 0px;
+  --hairline: 1px;
+  --border-strong: 2px;
+  --content-max: 1312px;
+  --page-margin: var(--s-16);
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur: 150ms;
+}
+
+/* Dark = inverted press. Same sheet, ink and paper swap roles. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper-0: #141310;
+    --paper-1: #1c1b17;
+    --paper-2: #24231e;
+    --ink-900: #f3f1ea;
+    --ink-700: #d6d2c4;
+    --ink-500: #a9a395;
+    --ink-300: #6c685e;
+    --ink-inverse: #141310;
+    --rule: #33312a;
+    --stamp: #e4574b;
+    --blueprint: #7b8dc7;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper-0: #141310;
+  --paper-1: #1c1b17;
+  --paper-2: #24231e;
+  --ink-900: #f3f1ea;
+  --ink-700: #d6d2c4;
+  --ink-500: #a9a395;
+  --ink-300: #6c685e;
+  --ink-inverse: #141310;
+  --rule: #33312a;
+  --stamp: #e4574b;
+  --blueprint: #7b8dc7;
+}
+
+/* ---------- 2. Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; border-radius: var(--radius); }
+
+body {
+  margin: 0;
+  background: var(--paper-0);
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: var(--lh-heading);
+  margin: 0;
+}
+/* Fluid: scales with the viewport, clamped to the design scale at both ends. */
+h1 { font-size: clamp(2rem, 6.4vw, var(--fs-61)); letter-spacing: -0.033em; line-height: var(--lh-display); }
+h2 { font-size: clamp(1.5rem, 4.4vw, var(--fs-39)); font-weight: 600; }
+h3 { font-size: clamp(1.1875rem, 3vw, var(--fs-25)); font-weight: 600; letter-spacing: -0.016em; }
+
+p { margin: 0; max-width: 68ch; }
+
+:focus-visible {
+  outline: var(--border-strong) solid var(--ink-900);
+  outline-offset: 2px;
+}
+
+/* ---------- 3. Type roles ---------- */
+
+.label,
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-500);
+}
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-11);
+  letter-spacing: 0.07em;
+  color: var(--ink-300);
+}
+.lead { font-size: var(--fs-18); color: var(--ink-500); max-width: 60ch; }
+
+/* ---------- 4. Digital pattern ----------
+   Dot grid and rules are cheap enough for CSS.
+   True halftone (dot SIZE carries tone) is generated —
+   see design/scripts/halftone.js and render it to SVG.        */
+
+.pattern-dots {
+  background-image: radial-gradient(var(--ink-300) 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+  background-position: 12px 12px;
+}
+.pattern-dots--tight { background-size: 16px 16px; background-position: 8px 8px; }
+
+.pattern-rule {
+  background-image:
+    linear-gradient(to right, var(--rule) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.pattern-ruled-lines {
+  background-image: linear-gradient(to bottom, var(--rule) 1px, transparent 1px);
+  background-size: 100% 24px;
+}
+
+/* ---------- 5. Components ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) 20px;
+  border: var(--hairline) solid var(--ink-900);
+  background: var(--paper-0);
+  color: var(--ink-900);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;      /* a button label is never allowed to wrap */
+  flex: none;               /* and never shrinks when it sits in a flex row */
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+/* Icons inside buttons need an explicit size — an unsized <svg> falls back to
+   its 300x150 default and swamps the label. */
+.btn svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  transition: transform var(--dur) var(--ease);
+}
+.btn:hover svg { transform: translateX(3px); }
+.btn--primary { background: var(--ink-900); color: var(--ink-inverse); }
+.btn--inverse { background: var(--paper-0); color: var(--ink-900); border-color: var(--paper-0); }
+
+/* Hover is a hard print offset — no blur, no lift, no scale. */
+.btn:hover { box-shadow: 4px 4px 0 var(--stamp); transform: translate(-1px, -1px); }
+.btn:active { box-shadow: 0 0 0 var(--stamp); transform: translate(0, 0); }
+
+.card {
+  background: var(--paper-1);
+  border: var(--hairline) solid var(--rule);
+  display: flex;
+  flex-direction: column;
+}
+.card__band { height: 132px; background: var(--paper-2); overflow: hidden; }
+.card__body { padding: var(--s-6); display: flex; flex-direction: column; gap: 14px; }
+.card__meta { display: flex; justify-content: space-between; }
+
+.tag {
+  display: inline-block;
+  padding: 5px 9px;
+  border: var(--hairline) solid var(--rule);
+  background: var(--paper-0);
+  font-family: var(--font-mono);
+  font-size: var(--fs-11);
+  letter-spacing: 0.07em;
+  color: var(--ink-700);
+  text-transform: uppercase;
+}
+.tag[aria-pressed="true"] { background: var(--ink-900); color: var(--ink-inverse); border-color: var(--ink-900); }
+
+.field {
+  height: 44px;
+  padding: 0 14px;
+  width: 100%;
+  border: var(--hairline) solid var(--ink-900);
+  background: var(--paper-0);
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  font-size: var(--fs-14);
+}
+.field::placeholder { color: var(--ink-300); }
+.field:focus { outline: none; box-shadow: inset 0 -2px 0 var(--stamp); }
+
+.rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
+.rule--strong { background: var(--ink-900); }
+
+/* Links carry an underline, never colour alone. */
+a { color: var(--ink-900); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--stamp); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+  .btn:hover { transform: none; }
+}

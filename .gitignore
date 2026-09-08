@@ -1,0 +1,7 @@
+scratch/
+node_modules/
+.DS_Store
+*.log
+public/**/*.gz
+.env.local
+my

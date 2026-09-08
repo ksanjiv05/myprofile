@@ -1,0 +1,13 @@
+{
+  "name": "my-profile",
+  "private": true,
+  "description": "Personal site. The SHIPPED site (public/) has zero dependencies and no build step — these are verification tools only, and never leave this machine.",
+  "scripts": {
+    "serve": "python3 -m http.server 8899 --directory public",
+    "audit": "node scratch/audit.js",
+    "dom": "node scratch/dom-test.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}
