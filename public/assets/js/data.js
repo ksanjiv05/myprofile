@@ -103,9 +103,14 @@ window.DATA = {
     { group: "DATA & DEVOPS", items: ["POSTGRES", "MONGODB", "AWS", "DOCKER"] }
   ],
 
-  links: {
-    github: "https://github.com/ksanjiv05",
-    email: "mailto:hello@example.com", // TODO: real address
-    linkedin: "#" // TODO
-  }
+  // Elsewhere. An entry with an empty href is SKIPPED at render time, so a
+  // placeholder never ships as a dead link — paste a URL to switch one on.
+  social: [
+    { label: "GitHub",      href: "https://github.com/ksanjiv05" },
+    { label: "App Store",   href: "https://apps.apple.com/us/app/findmyplayer/id6742809294" },
+    { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.aitasker" },
+    { label: "LinkedIn",    href: "" },   // TODO
+    { label: "X",           href: "" },   // TODO
+    { label: "Email",       href: "" }    // TODO  e.g. "mailto:hello@imsanjiv.in"
+  ]
 };

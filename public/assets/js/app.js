@@ -153,7 +153,7 @@
             return '<p class="reveal" style="--i:' + (i + 2) + ';margin-top:var(--s-6);font-size:var(--fs-18);color:var(--ink-700)">' + esc(p) + "</p>"; }).join("") +
           '<div class="hero__actions reveal" style="--i:4">' +
             '<a class="btn btn--primary" href="#/#contact">GET IN TOUCH' + ICON.arrow + "</a>" +
-            '<a class="btn" href="' + D.links.github + '" target="_blank" rel="noopener noreferrer">GITHUB</a>' +
+            '<a class="btn" href="' + socialHref("GitHub") + '" target="_blank" rel="noopener noreferrer">GITHUB</a>' +
           "</div>" +
         "</div>" +
         '<div class="plate plate--about reveal" style="--i:2">' +
@@ -183,6 +183,29 @@
           "</div></div></div></section>" + ctaBlock();
     }
   };
+
+  /* ---------- social ---------- */
+
+  function socialHref(label) {
+    for (var i = 0; i < D.social.length; i++)
+      if (D.social[i].label === label) return D.social[i].href || "";
+    return "";
+  }
+
+  function renderSocial() {
+    var host = document.getElementById("elsewhere");
+    if (!host) return;
+    var out = "", i, s;
+    for (i = 0; i < D.social.length; i++) {
+      s = D.social[i];
+      if (!s.href) continue;                       // unset: do not ship a dead link
+      var external = s.href.indexOf("mailto:") !== 0;
+      out += '<a href="' + esc(s.href) + '"' +
+        (external ? ' target="_blank" rel="noopener noreferrer"' : '') + '>' +
+        esc(s.label) + "</a>";
+    }
+    host.innerHTML = out;
+  }
 
   /* ---------- enhancers ---------- */
 
@@ -319,6 +342,7 @@
     var rt; addEventListener("resize", function () {
       clearTimeout(rt); rt = setTimeout(function () { PAT.paint(document); }, 180);
     }, { passive: true });
+    renderSocial();
     addEventListener("hashchange", render);
     render();
   });

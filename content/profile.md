@@ -94,13 +94,23 @@ different spelling. Card is drawn in the "awaiting copy" state.
 - **Aarogya Web App** — removed alongside it; the two are halves of the same platform.
   Say the word and it goes back in.
 
-## Links
+## Links — `public/assets/js/data.js` → `social`
 
-- https://apps.apple.com/us/app/findmyplayer/id6742809294 ✅
-- https://play.google.com/store/apps/details?id=com.aitasker ✅
+An entry with an empty `href` is skipped at render time, so a placeholder never ships
+as a dead link. Paste a URL to switch one on.
+
+| label | href | status |
+|---|---|---|
+| GitHub | https://github.com/ksanjiv05 | ✅ live |
+| App Store | https://apps.apple.com/us/app/findmyplayer/id6742809294 | ✅ live |
+| Google Play | https://play.google.com/store/apps/details?id=com.aitasker | ✅ live |
+| LinkedIn | — | ❗️TODO send the profile URL |
+| X | — | ❗️TODO or delete the entry if you do not use it |
+| Email | — | ❗️TODO `mailto:hello@imsanjiv.in` once the mailbox exists |
+
+Other links held elsewhere:
 - https://play.google.com/store/apps/details?id=com.sanjiv.axionlabs.neuron 🟡 unverified
-- https://github.com/ksanjiv05/vanni ✅
-- https://github.com/ksanjiv05/Lattice ✅
+- https://github.com/ksanjiv05/vanni ✅ · https://github.com/ksanjiv05/Lattice ✅
 - https://github.com/ksanjiv05/WishperWave ❗️404
 
 ## "How I work" — three habits 🟡
