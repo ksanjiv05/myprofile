@@ -50,7 +50,16 @@ window.DATA = {
       filters: ["mobile", "ai"]
     },
     {
-      idx: "04", meta: "IN PROGRESS · WEARABLE", title: "Vaani — wearable capture",
+      idx: "04", meta: "CLIENT WORK · AI PLATFORM", title: "Adora — panels in your own room",
+      desc: "Decorative surface panels, previewed in the room you actually have. Semantic segmentation finds the walls and doors in an uploaded photo, then places panels on them; the web app adds 3D preview with texture and finish options.",
+      tags: ["SEGMENTATION", "REACT NATIVE", "NODE"],
+      href: "https://ojasweetacreation.com/",
+      cta: "VISIT THE SITE",
+      pattern: { pitch: 12, maxDot: 9, direction: "up", gamma: 1.5 },
+      filters: ["ai", "mobile", "web"]
+    },
+    {
+      idx: "05", meta: "IN PROGRESS · WEARABLE", title: "Vaani — wearable capture",
       desc: "An ESP32 wearable records audio; a Kotlin Android app transcribes it with Sarvam AI, turns it into notes, summaries and to-dos, then answers questions over them with on-device RAG.",
       tags: ["KOTLIN", "ESP32", "ON-DEVICE RAG"],
       href: "https://github.com/ksanjiv05/vanni",
@@ -59,19 +68,13 @@ window.DATA = {
       filters: ["ai", "hardware", "mobile"]
     },
     {
-      idx: "05", meta: "2026 · WEB / TOOLING", title: "Lattice — calculation canvas",
+      idx: "06", meta: "2026 · WEB / TOOLING", title: "Lattice — calculation canvas",
       desc: "A node-based whiteboard for models: drop nodes, give each a formula, wire them together and watch values recompute live. Hand-written tokeniser, shunting-yard and RPN evaluator — no eval, with cycle detection.",
       tags: ["TYPESCRIPT", "REACT FLOW", "ZUSTAND"],
       href: "https://github.com/ksanjiv05/Lattice",
       cta: "VIEW ON GITHUB",
       pattern: { pitch: 16, maxDot: 9, direction: "left", gamma: 1.3 },
       filters: ["web"]
-    },
-    {
-      idx: "06", meta: "AWAITING LINK", title: "WishperWave",
-      desc: "The repository is private or renamed. Send a public link and one line of summary and this card fills itself.",
-      tags: ["TBD"], href: null, cta: "TO BE FILLED",
-      pattern: null, muted: true, filters: []
     }
   ],
 
@@ -115,6 +118,6 @@ window.DATA = {
     { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.aitasker" },
     { label: "LinkedIn",    href: "https://www.linkedin.com/in/sanjiv-kumar-pandit-318b24346" },
     { label: "Instagram",   href: "https://www.instagram.com/ksanjiv0005" },
-    { label: "Email",       href: "" }    // TODO  e.g. "mailto:hello@imsanjiv.in"
+    { label: "Email",       href: "mailto:contact@axionlabs.com" }
   ]
 };

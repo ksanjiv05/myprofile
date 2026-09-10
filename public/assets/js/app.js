@@ -73,10 +73,13 @@
       '<p class="label reveal">NEXT STEP  ·  REPLIES WITHIN 24H</p>' +
       '<h2 class="reveal" style="--i:1">Have something difficult to build?</h2>' +
       '<p class="reveal" style="--i:2">Send the messy version. I would rather see the real constraints than a tidy brief.</p>' +
-      '<form class="form reveal" style="--i:3" onsubmit="return false">' +
-      '<label><span class="label">EMAIL</span><input class="field" type="email" placeholder="you@company.com" required></label>' +
+      '<form class="form reveal" style="--i:3">' +
+      '<label><span class="label">YOUR EMAIL</span><input class="field" type="email" placeholder="you@company.com" required></label>' +
       '<button class="btn btn--inverse" type="submit">START A CONVERSATION' + ICON.arrow + "</button>" +
-      "</form></div></div></section>";
+      "</form>" +
+      '<p class="meta reveal" style="--i:4;margin-top:var(--s-4)">OR WRITE DIRECTLY TO ' +
+      '<a href="' + socialHref("Email") + '">' + esc(socialHref("Email").replace("mailto:", "")) + "</a></p>" +
+      "</div></div></section>";
   }
 
   /* ---------- views ---------- */
@@ -109,8 +112,8 @@
         ticker() + statsBlock() +
         '<section class="sec"><div class="wrap">' +
           '<div class="head"><div>' +
-            '<p class="label reveal">SELECTED WORK  ·  003 LIVE  ·  002 IN PROGRESS</p>' +
-            '<h2 class="reveal" style="--i:1">Three apps live, two in the workshop</h2></div>' +
+            '<p class="label reveal">SELECTED WORK  ·  005 SHIPPED  ·  001 IN PROGRESS</p>' +
+            '<h2 class="reveal" style="--i:1">Five shipped, one in the workshop</h2></div>' +
             '<a class="btn" href="#/work">ALL PROJECTS' + ICON.arrow + "</a></div>" +
           '<div class="grid">' + D.projects.slice(0, 3).map(card).join("") + "</div>" +
           '<div class="rows" style="margin-top:var(--s-12)">' +
@@ -134,8 +137,8 @@
     work: function () {
       return '<section class="sec" style="padding-bottom:var(--s-12)">' +
         '<div class="pat-host pattern-rule"></div><div class="wrap">' +
-        '<p class="label reveal">INDEX  ·  WORK  ·  003 LIVE  ·  002 IN PROGRESS  ·  001 TODO</p>' +
-        '<h1 class="reveal" style="--i:1;max-width:18ch"><span class="line">Three apps live, two in the workshop</span></h1>' +
+        '<p class="label reveal">INDEX  ·  WORK  ·  005 SHIPPED  ·  001 IN PROGRESS</p>' +
+        '<h1 class="reveal" style="--i:1;max-width:18ch"><span class="line">Five shipped, one in the workshop</span></h1>' +
         '<div class="filters reveal" style="--i:2">' +
           ["all", "ai", "mobile", "web", "hardware"].map(function (f, i) {
             return '<button class="tag" data-filter="' + f + '" aria-pressed="' + (i === 0) + '">' + f.toUpperCase() + "</button>"; }).join("") +
@@ -152,7 +155,7 @@
           D.about.map(function (p, i) {
             return '<p class="reveal" style="--i:' + (i + 2) + ';margin-top:var(--s-6);font-size:var(--fs-18);color:var(--ink-700)">' + esc(p) + "</p>"; }).join("") +
           '<div class="hero__actions reveal" style="--i:4">' +
-            '<a class="btn btn--primary" href="#/#contact">GET IN TOUCH' + ICON.arrow + "</a>" +
+            '<a class="btn btn--primary" href="' + socialHref("Email") + '">GET IN TOUCH' + ICON.arrow + "</a>" +
             '<a class="btn" href="' + socialHref("GitHub") + '" target="_blank" rel="noopener noreferrer">GITHUB</a>' +
           "</div>" +
         "</div>" +
@@ -296,9 +299,27 @@
       if (bg) bg.setAttribute("aria-expanded", "false");
       if (!location.hash.split("#")[2]) scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
       bindWork();
+      bindContact();
     };
     if (document.startViewTransition && !reduced) document.startViewTransition(paint);
     else paint();
+  }
+
+  /* No backend here, so the form hands off to the visitor's mail client with the
+     address they typed carried into the body — rather than pretending to submit. */
+  function bindContact() {
+    var form = document.querySelector(".cta .form");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var to = socialHref("Email").replace(/^mailto:/, "");
+      if (!to) return;
+      var input = form.querySelector("input");
+      var from = input && input.value ? input.value.trim() : "";
+      location.href = "mailto:" + to +
+        "?subject=" + encodeURIComponent("Via imsanjiv.in") +
+        "&body=" + encodeURIComponent(from ? "Reply to: " + from + "\n\n" : "");
+    });
   }
 
   function bindWork() {

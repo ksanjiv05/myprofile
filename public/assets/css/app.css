@@ -446,3 +446,12 @@ img, svg, canvas, pre { max-width: 100%; }
      intrinsic 300x150 and the portrait gets squashed into a 2:1 strip. */
   height: calc(100% - 94px);
 }
+
+/* Links on the ink block: the default `a` colour is --ink-900, which is the CTA's
+   own background there, so it would be invisible. */
+.cta a { color: var(--ink-inverse); text-underline-offset: 3px; }
+.cta a:hover { color: var(--stamp); }
+
+/* The inline address sits in running text, so its box was only as tall as the
+   glyphs. Pad it into a real tap target without disturbing the line. */
+.cta .meta a { display: inline-block; padding: 9px 0; }

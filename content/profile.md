@@ -14,12 +14,12 @@ independently checkable · ❗️TODO — still missing.
 |---|---|---|
 | Name | Sanjiv Kumar Pandit | ✅ git author |
 | GitHub | `ksanjiv05` | ✅ |
-| Studio / label | Axion Labs | 🟡 inferred from bundle id `com.sanjiv.axionlabs.neuron` — confirm |
+| Studio / label | Axion Labs | ✅ confirmed by the axionlabs.com contact address |
 | Positioning | AI & full-stack engineer | ✅ matches your stack + shipped apps |
 | Domain | `imsanjiv.in` | ✅ confirmed |
 | Header wordmark | `SANJIV PANDIT` | ✅ the name, not the URL — the address bar already shows the domain |
 | Location + timezone | Bengaluru · IST — *assumed* | ❗️TODO confirm |
-| Public email | — | ❗️TODO |
+| Public email | contact@axionlabs.com | ✅ |
 | LinkedIn | linkedin.com/in/sanjiv-kumar-pandit-318b24346 | ✅ |
 | Years of experience | ~6 yrs 10 mo (since Nov 2019) | ✅ derived from the employment history below |
 | Availability line | "Available for work · Q4 2026" | ❗️TODO confirm |
@@ -85,12 +85,24 @@ wire them together, and watch values flow and recompute live."* The engine is
 dependency ordering, and cycle detection"* — no `eval`.
 **Tags:** TYPESCRIPT · REACT FLOW · ZUSTAND
 
-### 06 · WishperWave ❗️TODO
-`github.com/ksanjiv05/WishperWave` **returns 404 publicly** — private, renamed, or a
-different spelling. Card is drawn in the "awaiting copy" state.
+### 06 · Lattice — calculation canvas ✅
+(unchanged — see above)
+
+### Adora — panels in your own room ✅ *(slot 04)*
+`https://ojasweetacreation.com/` — live, title "Ojasweeta Creation".
+A platform for exploring and selecting decorative surface panels: a React Native app
+for iOS and Android, a React web app, and a Node backend. The distinguishing feature is
+**semantic segmentation** — it identifies the walls and doors in a photo of your own
+room so panels can be placed on them, with 3D preview and texture/finish options on the
+web.
+**Tags:** SEGMENTATION · REACT NATIVE · NODE
+❗️TODO dates, and your role (lead? solo? part of a team?).
 
 ### Removed
 - **ArogIQ API Server** — removed at your request.
+- **WishperWave** — dropped from the six. `github.com/ksanjiv05/WishperWave` has 404'd
+  every time it was checked, and Adora took the slot. Make the repo public and it
+  goes back in.
 - **Aarogya Web App** — removed alongside it; the two are halves of the same platform.
   Say the word and it goes back in.
 
@@ -106,7 +118,7 @@ as a dead link. Paste a URL to switch one on.
 | Google Play | https://play.google.com/store/apps/details?id=com.aitasker | ✅ live |
 | LinkedIn | https://www.linkedin.com/in/sanjiv-kumar-pandit-318b24346 | ✅ live |
 | Instagram | https://www.instagram.com/ksanjiv0005 | ✅ live |
-| Email | — | ❗️TODO `mailto:hello@imsanjiv.in` once the mailbox exists |
+| Email | contact@axionlabs.com | ✅ live |
 
 Other links held elsewhere:
 - https://play.google.com/store/apps/details?id=com.sanjiv.axionlabs.neuron 🟡 unverified
