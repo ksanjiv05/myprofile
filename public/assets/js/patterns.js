@@ -93,7 +93,15 @@
     bctx.drawImage(img, (cols - dw) * fx, (rows - dh) * fy, dw, dh);
 
     var data;
-    try { data = bctx.getImageData(0, 0, cols, rows).data; } catch (e) { return; }
+    try {
+      data = bctx.getImageData(0, 0, cols, rows).data;
+    } catch (e) {
+      // Reading pixels back fails on a tainted canvas — opening the page over
+      // file://, or a cross-origin photo. drawImage still works, so show the
+      // photograph rather than silently leaving an empty plate.
+      drawPlain(ctx, img, w, h, o);
+      return;
+    }
 
     // Pass 1 — tone per cell.
     var n = cols * rows, tones = new Float32Array(n), k;
@@ -164,6 +172,19 @@
         ctx.fill();
       }
     }
+  }
+
+  /* Fallback when pixel readback is blocked: the photo itself, desaturated so it
+     still sits inside the paper-and-ink palette. */
+  function drawPlain(ctx, img, w, h, o) {
+    var fx = o.focusX == null ? 0.5 : o.focusX,
+        fy = o.focusY == null ? 0.5 : o.focusY,
+        zoom = o.zoom || 1,
+        scale = Math.max(w / img.width, h / img.height) * zoom,
+        dw = img.width * scale, dh = img.height * scale;
+    try { ctx.filter = "grayscale(1) contrast(1.08)"; } catch (e) {}
+    ctx.drawImage(img, (w - dw) * fx, (h - dh) * fy, dw, dh);
+    try { ctx.filter = "none"; } catch (e) {}
   }
 
   /* Paint (or repaint) every halftone inside root. */
