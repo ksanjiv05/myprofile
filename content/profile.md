@@ -20,8 +20,8 @@ independently checkable · ❗️TODO — still missing.
 | Header wordmark | `SANJIV PANDIT` | ✅ the name, not the URL — the address bar already shows the domain |
 | Location + timezone | Bengaluru · IST — *assumed* | ❗️TODO confirm |
 | Public email | — | ❗️TODO |
-| LinkedIn | — | ❗️TODO |
-| Years of experience | — | ❗️TODO |
+| LinkedIn | linkedin.com/in/sanjiv-kumar-pandit-318b24346 | ✅ |
+| Years of experience | ~6 yrs 10 mo (since Nov 2019) | ✅ derived from the employment history below |
 | Availability line | "Available for work · Q4 2026" | ❗️TODO confirm |
 
 ## Positioning
@@ -104,8 +104,8 @@ as a dead link. Paste a URL to switch one on.
 | GitHub | https://github.com/ksanjiv05 | ✅ live |
 | App Store | https://apps.apple.com/us/app/findmyplayer/id6742809294 | ✅ live |
 | Google Play | https://play.google.com/store/apps/details?id=com.aitasker | ✅ live |
-| LinkedIn | — | ❗️TODO send the profile URL |
-| X | — | ❗️TODO or delete the entry if you do not use it |
+| LinkedIn | https://www.linkedin.com/in/sanjiv-kumar-pandit-318b24346 | ✅ live |
+| Instagram | https://www.instagram.com/ksanjiv0005 | ✅ live |
 | Email | — | ❗️TODO `mailto:hello@imsanjiv.in` once the mailbox exists |
 
 Other links held elsewhere:
@@ -132,14 +132,35 @@ Para 1: I build LLM applications end to end: RAG retrieval, agent and multi-agen
 
 Para 2: The other half is shipping. Three apps are live across the App Store and Google Play, a wearable is in progress that captures audio and answers questions about it entirely on-device, and a node-based calculation canvas has a formula engine written from scratch. Underneath it all is a long stretch of MERN and Fastify backend work.
 
-## Working history
+## Employment history ✅ from your CV
 
-| # | role | org | dates | status |
-|---|---|---|---|---|
-| 01 | Independent — mobile & AI apps | Axion Labs | — | 🟡 ❗️TODO dates |
-| 02 | Vaani & Lattice — in progress | self | 2026 → now | ✅ |
-| 03 | MERN & Fastify backends | — | — | ❗️TODO dates + orgs |
-| 04 | — | — | — | ❗️TODO |
+| # | company | role · location | dates |
+|---|---|---|---|
+| 01 | WEO Global Inc. | Software Developer · Michigan City | Oct 2023 — present |
+| 02 | Qioseon Labs LLP | Software Developer · Mumbai | Sep 2022 — Oct 2023 |
+| 03 | Innobuz | Software Developer · Delhi | Mar 2021 — Sep 2022 |
+| 04 | Invatu Technology Pvt Ltd | Software Developer · Delhi | from Nov 2019 |
+
+❗️TODO the CV shows no end date for Invatu. The site says "FROM NOV 2019"; if it ran
+to Mar 2021 (when Innobuz starts) send that and I will close the range.
+
+The independent app work (Axion Labs — FindMyPlayer, Tasker AI, Neuron) and the
+in-progress projects (Vaani, Lattice) are no longer listed here — they have their own
+cards in Work, and this section now mirrors the CV's "Employment History" exactly.
+
+## Portrait ✅
+
+`public/assets/img/portrait.jpg` — 480×480, 52KB, EXIF/XMP stripped.
+Master: `design/portrait-source.jpg` (1489×1489). Social card: `assets/img/og.jpg`.
+
+Rendered on the About plate as a **print halftone**: the photo's luminance drives dot
+size, the same rule every other pattern on the site follows. Auto-levels stretch the
+2nd–98th percentile so the face does not vanish against the pale wall, and the tone
+mapping inverts in dark mode so the portrait stays positive rather than becoming a
+negative.
+
+The source was a Facebook CDN URL signed to expire 2026-09-15 — hotlinking it would
+have broken the portrait within days, so it is served locally.
 
 ## Toolbox ✅ (from your file)
 

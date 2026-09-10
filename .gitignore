@@ -5,3 +5,6 @@ node_modules/
 public/**/*.gz
 .env.local
 my
+
+# the raw drop-in at the repo root; the master lives in design/portrait-source.jpg
+780860364_*.jpg

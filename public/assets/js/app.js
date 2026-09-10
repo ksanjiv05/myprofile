@@ -157,15 +157,16 @@
           "</div>" +
         "</div>" +
         '<div class="plate plate--about reveal" style="--i:2">' +
-          '<pre class="ascii">' + esc(P.asciiField(22, 34, null, .42)) + "</pre>" +
-          P.halftone({ pitch: 26, maxDot: 20, direction: "radial", gamma: 2.6 }) +
+          P.halftoneImage("assets/img/portrait.jpg",
+            { pitch: 6, maxDot: 6.4, gamma: 1.15, zoom: 1.4, focusX: 0.74, focusY: 0.15 },
+            "Sanjiv Kumar Pandit, rendered as a print halftone") +
           '<span class="plate__cross plate__cross--h" style="top:8%"></span>' +
           '<span class="plate__cross plate__cross--h" style="top:88%"></span>' +
           '<span class="plate__label plate__label--tl">PLATE 01 — SELF PORTRAIT, HALFTONED</span>' +
           '<span class="plate__label plate__label--bl">OPEN TO AI / FULL-STACK ROLES</span>' +
         "</div></div></div></section>" +
         '<section class="sec"><div class="wrap">' +
-          '<p class="label reveal">WORKING HISTORY</p>' +
+          '<p class="label reveal">EMPLOYMENT HISTORY  ·  2019 — NOW</p>' +
           '<div class="rows" style="margin-top:var(--s-8)">' +
             D.history.map(function (h, i) { return row(h, i, null); }).join("") + "</div>" +
         "</div></section>" +

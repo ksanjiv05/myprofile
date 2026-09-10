@@ -90,11 +90,15 @@ window.DATA = {
   ],
 
   history: [
-    { idx: "01", title: "Axion Labs — independent apps", desc: "FindMyPlayer, Tasker AI and Neuron — designed, built and shipped solo to the App Store and Google Play.", when: "DATES TBC" },
-    { idx: "02", title: "Vaani & Lattice — in progress", desc: "An ESP32 audio wearable with on-device RAG, and a node-based calculation canvas built on a hand-written formula engine.", when: "2026 — NOW" },
-    { idx: "03", title: "MERN & Fastify backends", desc: "A long stretch of Node, Express and MongoDB services, and more recently typed Fastify APIs.", when: "DATES TBC" }
+    { idx: "01", title: "WEO Global Inc.", when: "OCT 2023 — NOW",
+      desc: "Software Developer, Michigan City. Scalable Node.js backends, cross-platform mobile apps in React Native, and responsive web applications." },
+    { idx: "02", title: "Qioseon Labs LLP", when: "SEP 2022 — OCT 2023",
+      desc: "Software Developer, Mumbai. Designed and maintained Node.js backend systems and high-performance React web applications." },
+    { idx: "03", title: "Innobuz", when: "MAR 2021 — SEP 2022",
+      desc: "Software Developer, Delhi. Robust Node.js backends and responsive React front ends, with an eye on integration and deployment." },
+    { idx: "04", title: "Invatu Technology Pvt Ltd", when: "FROM NOV 2019",
+      desc: "Software Developer, Delhi. Scalable Node.js backends with secure API design, efficient database access and optimised performance." }
   ],
-
   toolbox: [
     { group: "LANGUAGES", items: ["JAVASCRIPT / TS", "PYTHON", "RUST (BASIC)", "C++ (BASIC)", "SQL"] },
     { group: "AI & LLM", items: ["LANGCHAIN", "LANGGRAPH", "MCP", "QDRANT", "HNSWLIB", "RAG"] },
@@ -109,8 +113,8 @@ window.DATA = {
     { label: "GitHub",      href: "https://github.com/ksanjiv05" },
     { label: "App Store",   href: "https://apps.apple.com/us/app/findmyplayer/id6742809294" },
     { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.aitasker" },
-    { label: "LinkedIn",    href: "" },   // TODO
-    { label: "X",           href: "" },   // TODO
+    { label: "LinkedIn",    href: "https://www.linkedin.com/in/sanjiv-kumar-pandit-318b24346" },
+    { label: "Instagram",   href: "https://www.instagram.com/ksanjiv0005" },
     { label: "Email",       href: "" }    // TODO  e.g. "mailto:hello@imsanjiv.in"
   ]
 };

@@ -334,8 +334,8 @@ img, svg, canvas, pre { max-width: 100%; }
   .plate--hero .plate__label--bl,
   .plate--hero .plate__label--br { display: none; }
 
-  /* --- About plate: pure decoration, and the ascii is fixed-width. Drop it. --- */
-  .plate--about { display: none; }
+  /* --- About plate: this is the portrait now, so it earns its space on mobile --- */
+  .plate--about { aspect-ratio: 1 / 1; }
 
   /* --- Buttons stretch to the full column so they read as primary actions --- */
   .hero__actions { gap: var(--s-3); }
@@ -440,10 +440,9 @@ img, svg, canvas, pre { max-width: 100%; }
 /* The About plate's texture ran the full height, straight under the corner labels —
    the ASCII field made "OPEN TO AI / FULL-STACK ROLES" hard to read. Hold the texture
    inside the ruled band so the labels sit on clean paper, as in the Pencil mock. */
-.plate--about .ascii,
 .plate--about canvas.pat--halftone {
   top: 38px;
-  bottom: 56px;
-  height: auto;
+  /* NOT height:auto — <canvas> is a replaced element, so auto resolves to its
+     intrinsic 300x150 and the portrait gets squashed into a 2:1 strip. */
+  height: calc(100% - 94px);
 }
-.plate--about .ascii { padding: 6px 18px; }
