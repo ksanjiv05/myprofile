@@ -3,8 +3,8 @@ window.DATA = {
   identity: {
     name: "Sanjiv Kumar Pandit",
     wordmark: "SANJIV PANDIT",
-    domain: "imsanjiv.com",
-    url: "https://imsanjiv.com",
+    domain: "imsanjiv.in",
+    url: "https://imsanjiv.in",
     github: "https://github.com/ksanjiv05",
     role: "AI & full-stack engineer",
     availability: "AVAILABLE FOR WORK  ·  Q4 2026  ·  REMOTE / BENGALURU",
