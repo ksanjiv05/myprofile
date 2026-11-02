@@ -14,12 +14,12 @@ independently checkable · ❗️TODO — still missing.
 |---|---|---|
 | Name | Sanjiv Kumar Pandit | ✅ git author |
 | GitHub | `ksanjiv05` | ✅ |
-| Studio / label | Axion Labs | ✅ confirmed by the axionlabs.com contact address |
+| Studio / label | Axion Labs | ✅ confirmed by the axionlabs.live contact address |
 | Positioning | AI & full-stack engineer | ✅ matches your stack + shipped apps |
 | Domain | `imsanjiv.in` | ✅ confirmed |
 | Header wordmark | `SANJIV PANDIT` | ✅ the name, not the URL — the address bar already shows the domain |
 | Location + timezone | Bengaluru · IST — *assumed* | ❗️TODO confirm |
-| Public email | contact@axionlabs.com | ✅ |
+| Public email | contact@axionlabs.live | ✅ |
 | LinkedIn | linkedin.com/in/sanjiv-kumar-pandit-318b24346 | ✅ |
 | Years of experience | ~6 yrs 10 mo (since Nov 2019) | ✅ derived from the employment history below |
 | Availability line | "Available for work · Q4 2026" | ❗️TODO confirm |
@@ -44,7 +44,10 @@ Native apps and Node/Python backends. Three apps live on the App Store and Googl
 *The previous ArogIQ-derived stats (279 operations, 64k lines) are removed along with
 the project.*
 
-## Work — six entries, ordered as you asked
+## Work — seven entries, ordered as you asked
+
+The card index (`01 / 07`) and the "N shipped, M in the workshop" heading are computed
+from the list; an entry whose meta starts with `IN PROGRESS` counts as in progress.
 
 ### 01 · FindMyPlayer ✅
 iOS · `id6742809294` · Sports · seller **Find My Player Inc**.
@@ -60,7 +63,23 @@ An AI day planner and note app — plans the day and keeps the notes it generate
 same surface, instead of in two apps.
 **Tags:** ANDROID · LLM · LIVE
 
-### 03 · Neuron — on-device LLM 🟡
+### 03 · Laya — on-device typed decisions ✅
+`github.com/ksanjiv05/laya-rn-executorch` · models on Hugging Face at
+`huggingface.co/ksanjiv05/laya-for-rn-executorch`.
+Runs **Laya** (Convai's open-weights, Apache-2.0 "System-1" decision model:
+ModernBERT-large encoder plus a typed-decision head) **fully offline** in a bare React
+Native 0.87 app through ExecuTorch (`react-native-executorch`). It answers typed
+questions (choice / score / yes-no) with a calibrated probability in one forward pass,
+with no text generation.
+Built: a PyTorch → ExecuTorch `.pte` export pipeline with XNNPACK int8, Core ML and
+Vulkan backends, an int4 Colab notebook, and a demo app checked against Python
+reference answers.
+Measured (from the repo README): **~45 ms per decision on an iPhone 15** (Core ML,
+845 MB), ~7.7 s on an Android phone (XNNPACK int8, 603 MB). Both got 4/4 matches
+against the reference.
+**Tags:** EXECUTORCH · REACT NATIVE · CORE ML
+
+### 04 · Neuron — on-device LLM 🟡
 Android · `com.sanjiv.axionlabs.neuron` · shipped under Axion Labs.
 The model runs on the handset, so chat works with no network and nothing leaves the
 device.
@@ -68,27 +87,7 @@ device.
 ❗️TODO which runtime — llama.cpp, MLC, GGUF quantisation? For an on-device app that
 detail is the story.
 
-### 04 · Vaani — wearable capture ✅ *(work in progress)*
-`github.com/ksanjiv05/vanni` · Kotlin.
-README: *"An ESP32 wearable records audio; the Android app transcribes it via Sarvam AI,
-turns it into notes, summaries and to-dos, and lets you search and chat with them using
-on-device RAG."*
-**Tags:** KOTLIN · ESP32 · ON-DEVICE RAG
-Note: repo is `vanni`, README calls it **Vaani** — the design uses Vaani. Say if you
-want the repo spelling instead.
-
-### 05 · Lattice — calculation canvas ✅
-`github.com/ksanjiv05/Lattice` · TypeScript · React 19, Vite, React Flow, Zustand, Tailwind.
-README: *"Build models on an infinite whiteboard: drop nodes, give each one a formula,
-wire them together, and watch values flow and recompute live."* The engine is
-*"a hand-written tokenize → shunting-yard → RPN evaluator with built-in math functions,
-dependency ordering, and cycle detection"* — no `eval`.
-**Tags:** TYPESCRIPT · REACT FLOW · ZUSTAND
-
-### 06 · Lattice — calculation canvas ✅
-(unchanged — see above)
-
-### Adora — panels in your own room ✅ *(slot 04)*
+### 05 · Adora — panels in your own room ✅
 `https://ojasweetacreation.com/` — live, title "Ojasweeta Creation".
 A platform for exploring and selecting decorative surface panels: a React Native app
 for iOS and Android, a React web app, and a Node backend. The distinguishing feature is
@@ -97,6 +96,23 @@ room so panels can be placed on them, with 3D preview and texture/finish options
 web.
 **Tags:** SEGMENTATION · REACT NATIVE · NODE
 ❗️TODO dates, and your role (lead? solo? part of a team?).
+
+### 06 · Vaani — wearable capture ✅ *(work in progress)*
+`github.com/ksanjiv05/vanni` · Kotlin.
+README: *"An ESP32 wearable records audio; the Android app transcribes it via Sarvam AI,
+turns it into notes, summaries and to-dos, and lets you search and chat with them using
+on-device RAG."*
+**Tags:** KOTLIN · ESP32 · ON-DEVICE RAG
+Note: repo is `vanni`, README calls it **Vaani** — the design uses Vaani. Say if you
+want the repo spelling instead.
+
+### 07 · Lattice — calculation canvas ✅
+`github.com/ksanjiv05/Lattice` · TypeScript · React 19, Vite, React Flow, Zustand, Tailwind.
+README: *"Build models on an infinite whiteboard: drop nodes, give each one a formula,
+wire them together, and watch values flow and recompute live."* The engine is
+*"a hand-written tokenize → shunting-yard → RPN evaluator with built-in math functions,
+dependency ordering, and cycle detection"* — no `eval`.
+**Tags:** TYPESCRIPT · REACT FLOW · ZUSTAND
 
 ### Removed
 - **ArogIQ API Server** — removed at your request.
@@ -118,11 +134,12 @@ as a dead link. Paste a URL to switch one on.
 | Google Play | https://play.google.com/store/apps/details?id=com.aitasker | ✅ live |
 | LinkedIn | https://www.linkedin.com/in/sanjiv-kumar-pandit-318b24346 | ✅ live |
 | Instagram | https://www.instagram.com/ksanjiv0005 | ✅ live |
-| Email | contact@axionlabs.com | ✅ live |
+| Email | contact@axionlabs.live | ✅ live |
 
 Other links held elsewhere:
 - https://play.google.com/store/apps/details?id=com.sanjiv.axionlabs.neuron 🟡 unverified
 - https://github.com/ksanjiv05/vanni ✅ · https://github.com/ksanjiv05/Lattice ✅
+- https://github.com/ksanjiv05/laya-rn-executorch ✅ · https://huggingface.co/ksanjiv05/laya-for-rn-executorch ✅
 - https://github.com/ksanjiv05/WishperWave ❗️404
 
 ## "How I work" — three habits 🟡
@@ -177,7 +194,7 @@ have broken the portrait within days, so it is served locally.
 ## Toolbox ✅ (from your file)
 
 - **Languages:** JavaScript / TypeScript · Python · Rust *(basic)* · C++ *(basic)* · SQL
-- **AI & LLM:** LangChain · LangGraph · MCP · RAG · Qdrant · hnswlib
+- **AI & LLM:** LangChain · LangGraph · MCP · RAG · Qdrant · hnswlib · ExecuTorch
 - **Backend:** Node · Express · Fastify · FastAPI
 - **Frontend & mobile:** React · React Native · Next.js · TanStack
 - **Data & DevOps:** Postgres · MongoDB · AWS · Docker

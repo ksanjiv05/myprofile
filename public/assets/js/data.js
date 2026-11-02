@@ -41,7 +41,16 @@ window.DATA = {
       filters: ["mobile", "ai"]
     },
     {
-      idx: "03", meta: "2026 · MOBILE / AI", title: "Neuron — on-device LLM",
+      idx: "03", meta: "2026 · ON-DEVICE AI / OPEN SOURCE", title: "Laya — on-device typed decisions",
+      desc: "Convai's open-weights Laya decision model, exported to ExecuTorch and run fully offline in a React Native app. It gives typed answers with calibrated confidence in about 45 ms on an iPhone 15 (Core ML), with an int8 build for Android.",
+      tags: ["EXECUTORCH", "REACT NATIVE", "CORE ML"],
+      href: "https://github.com/ksanjiv05/laya-rn-executorch",
+      cta: "VIEW ON GITHUB",
+      pattern: { pitch: 12, maxDot: 8, direction: "left", gamma: 1.8 },
+      filters: ["ai", "mobile"]
+    },
+    {
+      idx: "04", meta: "2026 · MOBILE / AI", title: "Neuron — on-device LLM",
       desc: "A local-LLM Android app shipped under Axion Labs. The model runs on the handset, so chat works with no network and nothing leaves the device.",
       tags: ["ANDROID", "ON-DEVICE LLM", "LIVE"],
       href: "https://play.google.com/store/apps/details?id=com.sanjiv.axionlabs.neuron",
@@ -50,7 +59,7 @@ window.DATA = {
       filters: ["mobile", "ai"]
     },
     {
-      idx: "04", meta: "CLIENT WORK · AI PLATFORM", title: "Adora — panels in your own room",
+      idx: "05", meta: "CLIENT WORK · AI PLATFORM", title: "Adora — panels in your own room",
       desc: "Decorative surface panels, previewed in the room you actually have. Semantic segmentation finds the walls and doors in an uploaded photo, then places panels on them; the web app adds 3D preview with texture and finish options.",
       tags: ["SEGMENTATION", "REACT NATIVE", "NODE"],
       href: "https://ojasweetacreation.com/",
@@ -59,7 +68,7 @@ window.DATA = {
       filters: ["ai", "mobile", "web"]
     },
     {
-      idx: "05", meta: "IN PROGRESS · WEARABLE", title: "Vaani — wearable capture",
+      idx: "06", meta: "IN PROGRESS · WEARABLE", title: "Vaani — wearable capture",
       desc: "An ESP32 wearable records audio; a Kotlin Android app transcribes it with Sarvam AI, turns it into notes, summaries and to-dos, then answers questions over them with on-device RAG.",
       tags: ["KOTLIN", "ESP32", "ON-DEVICE RAG"],
       href: "https://github.com/ksanjiv05/vanni",
@@ -68,7 +77,7 @@ window.DATA = {
       filters: ["ai", "hardware", "mobile"]
     },
     {
-      idx: "06", meta: "2026 · WEB / TOOLING", title: "Lattice — calculation canvas",
+      idx: "07", meta: "2026 · WEB / TOOLING", title: "Lattice — calculation canvas",
       desc: "A node-based whiteboard for models: drop nodes, give each a formula, wire them together and watch values recompute live. Hand-written tokeniser, shunting-yard and RPN evaluator — no eval, with cycle detection.",
       tags: ["TYPESCRIPT", "REACT FLOW", "ZUSTAND"],
       href: "https://github.com/ksanjiv05/Lattice",
@@ -104,7 +113,7 @@ window.DATA = {
   ],
   toolbox: [
     { group: "LANGUAGES", items: ["JAVASCRIPT / TS", "PYTHON", "RUST (BASIC)", "C++ (BASIC)", "SQL"] },
-    { group: "AI & LLM", items: ["LANGCHAIN", "LANGGRAPH", "MCP", "QDRANT", "HNSWLIB", "RAG"] },
+    { group: "AI & LLM", items: ["LANGCHAIN", "LANGGRAPH", "MCP", "QDRANT", "HNSWLIB", "RAG", "EXECUTORCH"] },
     { group: "BACKEND", items: ["NODE", "EXPRESS", "FASTIFY", "FASTAPI"] },
     { group: "FRONTEND & MOBILE", items: ["REACT", "REACT NATIVE", "NEXT.JS", "TANSTACK"] },
     { group: "DATA & DEVOPS", items: ["POSTGRES", "MONGODB", "AWS", "DOCKER"] }
@@ -118,6 +127,6 @@ window.DATA = {
     { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.aitasker" },
     { label: "LinkedIn",    href: "https://www.linkedin.com/in/sanjiv-kumar-pandit-318b24346" },
     { label: "Instagram",   href: "https://www.instagram.com/ksanjiv0005" },
-    { label: "Email",       href: "mailto:contact@axionlabs.com" }
+    { label: "Email",       href: "mailto:contact@axionlabs.live" }
   ]
 };

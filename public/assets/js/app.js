@@ -5,6 +5,16 @@
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
 
+  // Project counts, derived so adding a project never leaves a stale "/ 06" behind.
+  // An entry whose meta starts with "IN PROGRESS" is in the workshop; the rest shipped.
+  var NUM = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
+  var TOTAL = D.projects.length;
+  var WIP = D.projects.filter(function (p) { return /^IN PROGRESS/.test(p.meta); }).length;
+  var SHIPPED = TOTAL - WIP;
+  var pad = function (n, w) { n = String(n); while (n.length < w) n = "0" + n; return n; };
+  var WORK_LABEL = pad(SHIPPED, 3) + " SHIPPED  ·  " + pad(WIP, 3) + " IN PROGRESS";
+  var WORK_HEAD = (NUM[SHIPPED] || SHIPPED) + " shipped, " + String(NUM[WIP] || WIP).toLowerCase() + " in the workshop";
+
   var ICON = {
     arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
     out: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>',
@@ -25,7 +35,7 @@
     var inner =
       '<div class="card__band">' + band + "</div>" +
       '<div class="card__body">' +
-        '<div class="card__meta"><span class="meta">' + esc(p.idx) + " / 06</span>" +
+        '<div class="card__meta"><span class="meta">' + esc(p.idx) + " / " + pad(TOTAL, 2) + "</span>" +
           '<span class="meta">' + esc(p.meta) + "</span></div>" +
         '<h3 class="card__title">' + esc(p.title) + "</h3>" +
         '<p class="card__desc">' + esc(p.desc) + "</p>" +
@@ -112,8 +122,8 @@
         ticker() + statsBlock() +
         '<section class="sec"><div class="wrap">' +
           '<div class="head"><div>' +
-            '<p class="label reveal">SELECTED WORK  ·  005 SHIPPED  ·  001 IN PROGRESS</p>' +
-            '<h2 class="reveal" style="--i:1">Five shipped, one in the workshop</h2></div>' +
+            '<p class="label reveal">SELECTED WORK  ·  ' + WORK_LABEL + "</p>" +
+            '<h2 class="reveal" style="--i:1">' + WORK_HEAD + "</h2></div>" +
             '<a class="btn" href="#/work">ALL PROJECTS' + ICON.arrow + "</a></div>" +
           '<div class="grid">' + D.projects.slice(0, 3).map(card).join("") + "</div>" +
           '<div class="rows" style="margin-top:var(--s-12)">' +
@@ -137,8 +147,8 @@
     work: function () {
       return '<section class="sec" style="padding-bottom:var(--s-12)">' +
         '<div class="pat-host pattern-rule"></div><div class="wrap">' +
-        '<p class="label reveal">INDEX  ·  WORK  ·  005 SHIPPED  ·  001 IN PROGRESS</p>' +
-        '<h1 class="reveal" style="--i:1;max-width:18ch"><span class="line">Five shipped, one in the workshop</span></h1>' +
+        '<p class="label reveal">INDEX  ·  WORK  ·  ' + WORK_LABEL + "</p>" +
+        '<h1 class="reveal" style="--i:1;max-width:18ch"><span class="line">' + WORK_HEAD + "</span></h1>" +
         '<div class="filters reveal" style="--i:2">' +
           ["all", "ai", "mobile", "web", "hardware"].map(function (f, i) {
             return '<button class="tag" data-filter="' + f + '" aria-pressed="' + (i === 0) + '">' + f.toUpperCase() + "</button>"; }).join("") +
