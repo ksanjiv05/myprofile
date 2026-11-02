@@ -327,7 +327,7 @@
       var input = form.querySelector("input");
       var from = input && input.value ? input.value.trim() : "";
       location.href = "mailto:" + to +
-        "?subject=" + encodeURIComponent("Via imsanjiv.in") +
+        "?subject=" + encodeURIComponent("Via imsanjiv.com") +
         "&body=" + encodeURIComponent(from ? "Reply to: " + from + "\n\n" : "");
     });
   }

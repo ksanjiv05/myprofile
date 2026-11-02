@@ -16,7 +16,7 @@ independently checkable · ❗️TODO — still missing.
 | GitHub | `ksanjiv05` | ✅ |
 | Studio / label | Axion Labs | ✅ confirmed by the axionlabs.live contact address |
 | Positioning | AI & full-stack engineer | ✅ matches your stack + shipped apps |
-| Domain | `imsanjiv.in` | ✅ confirmed |
+| Domain | `imsanjiv.com` | ✅ confirmed |
 | Header wordmark | `SANJIV PANDIT` | ✅ the name, not the URL — the address bar already shows the domain |
 | Location + timezone | Bengaluru · IST — *assumed* | ❗️TODO confirm |
 | Public email | contact@axionlabs.live | ✅ |
