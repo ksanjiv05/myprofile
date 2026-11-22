@@ -1,5 +1,10 @@
 # Publishes the static site in public/ to GitHub Pages. No build step: the folder is
 # uploaded as-is. Settings → Pages → Source must be "GitHub Actions" for this to deploy.
+#
+# Upload and deploy run as two jobs on purpose. In a single job, deploy-pages can look
+# up the artifact a few hundred ms after upload and intermittently find nothing
+# ("No artifacts named github-pages", actions/deploy-pages#451). A re-run of that job
+# cannot recover, because it uploads a second artifact. The job boundary removes the race.
 name: Deploy site to GitHub Pages
 
 on:
@@ -17,18 +22,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/configure-pages@v6
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: public
+
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
