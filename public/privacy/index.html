@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Apps by Sanjiv Kumar Pandit</title>
+<meta name="description" content="Privacy policy for the Android apps by Sanjiv Kumar Pandit (Axion Labs). The apps run on your device and collect no personal data.">
+<meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141310" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://imsanjiv.in/privacy/">
+<meta property="og:title" content="Privacy Policy · Apps by Sanjiv Kumar Pandit">
+<meta property="og:description" content="Our apps run on your device and collect no personal data.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://imsanjiv.in/privacy/">
+
+<!-- Same theme handshake as the main site, so a chosen theme carries over. -->
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%2314130f'/></svg>">
+<style>
+  /* No entrance fade: a legal page should be fully visible on first paint. */
+  main.policy { padding-top: var(--s-12); padding-bottom: var(--s-16); animation: none; }
+  .policy__meta a, .contact dd a { display: inline-flex; align-items: center; min-height: 32px; }
+  .policy__col { max-width: 760px; }
+  .policy__head { display: flex; flex-direction: column; gap: var(--s-4); }
+  .policy__meta { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); margin: var(--s-2) 0 0;
+    padding-top: var(--s-3); border-top: var(--hairline) solid var(--ink-900); }
+  .policy__meta { align-items: center; }
+  .policy__meta div { display: flex; gap: var(--s-2); align-items: center; }
+  .policy__meta dt { font-family: var(--font-mono); font-size: var(--fs-11); letter-spacing: var(--tracking-label);
+    text-transform: uppercase; color: var(--ink-500); }
+  .policy__meta dd { margin: 0; font-family: var(--font-mono); font-size: var(--fs-12); color: var(--ink-900); }
+
+  .summary { margin-top: var(--s-8); background: var(--paper-1); border: var(--hairline) solid var(--rule); }
+  .summary__band { height: 16px; border-bottom: var(--hairline) solid var(--rule); }
+  .summary__body { padding: var(--s-6); }
+  .summary ul { margin: var(--s-3) 0 0; padding: 0; list-style: none; display: grid; gap: var(--s-3); }
+  .summary li { display: grid; grid-template-columns: 28px 1fr; gap: var(--s-2); font-size: var(--fs-16); }
+  .summary li > span:first-child { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--ink-500); padding-top: 3px; }
+
+  .toc { margin-top: var(--s-8); }
+  .toc ol { margin: var(--s-3) 0 0; padding: 0; list-style: none; columns: 2 220px; column-gap: var(--s-6); }
+  .toc li { break-inside: avoid; border-bottom: var(--hairline) solid var(--rule); }
+  .toc a { display: flex; gap: var(--s-3); padding: 8px 0; min-height: 40px; align-items: center;
+    font-size: var(--fs-14); color: var(--ink-700); text-decoration: none; }
+  .toc a:hover { color: var(--stamp); text-decoration: underline; }
+  .toc a span { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--ink-500); }
+
+  .clause { margin-top: var(--s-12); scroll-margin-top: 96px; }
+  .clause h2 { display: flex; align-items: baseline; gap: var(--s-3); font-size: var(--fs-25); padding-bottom: var(--s-3);
+    border-bottom: var(--hairline) solid var(--ink-900); }
+  .clause h2 .idx { font-family: var(--font-mono); font-size: var(--fs-12); font-weight: 500; letter-spacing: var(--tracking-label);
+    color: var(--stamp); flex: none; }
+  .clause p, .clause ul { margin-top: var(--s-4); color: var(--ink-700); }
+  .clause ul { padding-left: 20px; max-width: 68ch; }
+  .clause li + li { margin-top: var(--s-2); }
+  .clause strong { color: var(--ink-900); font-weight: 500; }
+  .clause code, .pkg { font-family: var(--font-mono); font-size: 0.875em; overflow-wrap: anywhere; }
+
+  .tbl { width: 100%; margin-top: var(--s-4); border-collapse: collapse; font-size: var(--fs-14); }
+  .tbl th { text-align: left; font-family: var(--font-mono); font-size: var(--fs-11); font-weight: 500;
+    letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--ink-500);
+    padding: 0 var(--s-4) var(--s-2) 0; border-bottom: var(--hairline) solid var(--ink-900); }
+  .tbl td { padding: var(--s-3) var(--s-4) var(--s-3) 0; border-bottom: var(--hairline) solid var(--rule);
+    vertical-align: top; color: var(--ink-900); }
+  .tbl td:last-child, .tbl th:last-child { padding-right: 0; }
+  @media (min-width: 600px) { .tbl .pkg { white-space: nowrap; } }
+  @media (max-width: 599px) {
+    .tbl thead { display: none; }
+    .tbl tr { display: block; padding: var(--s-3) 0; border-bottom: var(--hairline) solid var(--rule); }
+    .tbl td { display: block; padding: 2px 0; border: 0; }
+    .tbl td::before { content: attr(data-label); display: block; font-family: var(--font-mono); font-size: var(--fs-11);
+      letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--ink-500); }
+  }
+
+  .contact { margin-top: var(--s-4); display: grid; gap: var(--s-2); }
+  .contact div { display: grid; grid-template-columns: 96px 1fr; gap: var(--s-3); align-items: baseline;
+    padding: var(--s-2) 0; border-bottom: var(--hairline) solid var(--rule); }
+  .contact dt { font-family: var(--font-mono); font-size: var(--fs-11); letter-spacing: var(--tracking-label);
+    text-transform: uppercase; color: var(--ink-500); }
+  .contact dd { margin: 0; overflow-wrap: anywhere; }
+  .home-link { font-family: var(--font-mono); font-size: var(--fs-12); letter-spacing: var(--tracking-label);
+    text-transform: uppercase; color: var(--ink-700); min-height: 44px; display: inline-flex; align-items: center; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="/" aria-label="Sanjiv Pandit, home">
+      <span class="brand__mark"></span>
+      <span class="brand__name">SANJIV PANDIT</span>
+    </a>
+    <a class="home-link" href="/">Home</a>
+  </div>
+</header>
+
+<main class="wrap policy">
+  <div class="policy__col">
+
+    <div class="policy__head">
+      <span class="eyebrow">Legal · Apps on Google Play</span>
+      <h1>Privacy Policy</h1>
+      <p class="lead">For the Android apps published by Sanjiv Kumar Pandit under the name Axion Labs.</p>
+      <dl class="policy__meta">
+        <div><dt>Effective</dt><dd><time datetime="2026-11-22">22 Nov 2026</time></dd></div>
+        <div><dt>Last updated</dt><dd><time datetime="2026-11-22">22 Nov 2026</time></dd></div>
+        <div><dt>Contact</dt><dd><a href="mailto:contact@axionlabs.live">contact@axionlabs.live</a></dd></div>
+      </dl>
+    </div>
+
+    <aside class="summary" aria-labelledby="short">
+      <div class="summary__band pattern-dots pattern-dots--tight" aria-hidden="true"></div>
+      <div class="summary__body">
+        <span class="eyebrow" id="short">In short</span>
+        <ul>
+          <li><span>01</span><span class="summary__text">Our apps work on your device. By default, what you type, record, photograph or generate stays there.</span></li>
+          <li><span>02</span><span class="summary__text">We do not collect, store, sell or share your personal data. We run no server that receives it.</span></li>
+          <li><span>03</span><span class="summary__text">There are no accounts, ads, analytics or tracking tools in our apps.</span></li>
+          <li><span>04</span><span class="summary__text">Vaani can use Sarvam AI&rsquo;s online service, but only if you switch it on with your own API key. <a href="#sarvam">Section 06</a> explains what it sends.</span></li>
+          <li><span>05</span><span class="summary__text">Uninstalling an app deletes everything it stored on your phone.</span></li>
+        </ul>
+      </div>
+    </aside>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <span class="eyebrow" id="toc-title">Contents</span>
+      <ol>
+        <li><a href="#scope"><span>01</span>Who we are and what this covers</a></li>
+        <li><a href="#collect"><span>02</span>Information we collect</a></li>
+        <li><a href="#handling"><span>03</span>How the apps handle your data</a></li>
+        <li><a href="#permissions"><span>04</span>Device permissions</a></li>
+        <li><a href="#internet"><span>05</span>Internet use and AI model downloads</a></li>
+        <li><a href="#sarvam"><span>06</span>Optional online feature: Sarvam AI in Vaani</a></li>
+        <li><a href="#third-party"><span>07</span>Third&#8209;party services</a></li>
+        <li><a href="#backups"><span>08</span>Device backups</a></li>
+        <li><a href="#sharing"><span>09</span>Sharing and selling</a></li>
+        <li><a href="#retention"><span>10</span>Keeping and deleting your data</a></li>
+        <li><a href="#security"><span>11</span>Security</a></li>
+        <li><a href="#children"><span>12</span>Children</a></li>
+        <li><a href="#rights"><span>13</span>Your rights</a></li>
+        <li><a href="#changes"><span>14</span>Changes to this policy</a></li>
+        <li><a href="#contact"><span>15</span>Contact</a></li>
+      </ol>
+    </nav>
+
+    <section class="clause" id="scope">
+      <h2><span class="idx">01</span>Who we are and what this covers</h2>
+      <p>This policy covers the Android apps published on Google Play by Sanjiv Kumar Pandit under the name Axion Labs (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). It applies to every app in the list below, unless that app&rsquo;s store listing links to a different policy.</p>
+      <table class="tbl">
+        <thead><tr><th scope="col">App</th><th scope="col">Package</th><th scope="col">What stays on your device</th></tr></thead>
+        <tbody>
+          <tr><td data-label="App">Tasker AI: Day Planner &amp; Note</td><td data-label="Package"><span class="pkg">com.aitasker</span></td><td data-label="What stays on your device">Tasks, plans, notes and settings</td></tr>
+          <tr><td data-label="App">Neuron</td><td data-label="Package"><span class="pkg">com.sanjiv.axionlabs.neuron</span></td><td data-label="What stays on your device">Chats, the AI model and settings</td></tr>
+          <tr><td data-label="App">Vaani: Wearable Voice Notes</td><td data-label="Package"><span class="pkg">com.vaani.app</span></td><td data-label="What stays on your device">Recordings, transcripts, notes, to&#8209;dos, chats, AI models and settings</td></tr>
+        </tbody>
+      </table>
+      <p>New apps are added to this list before they are released.</p>
+    </section>
+
+    <section class="clause" id="collect">
+      <h2><span class="idx">02</span>Information we collect</h2>
+      <p><strong>None.</strong> Our apps do not ask you to create an account, and they never send your content to us. Your content includes tasks, notes, chats, prompts, voice recordings, photos and anything an AI feature produces. We have no database of users and no way to identify you. The only time content leaves your device is when you turn on the optional online feature described in <a href="#sarvam">section 06</a>.</p>
+    </section>
+
+    <section class="clause" id="handling">
+      <h2><span class="idx">03</span>How the apps handle your data</h2>
+      <p>Everything you create is saved in the app&rsquo;s private storage on your device. Android keeps each app&rsquo;s storage separate, so other apps cannot read it, and neither can we.</p>
+      <p>AI features run a model on your phone&rsquo;s own processor. Your prompts and the model&rsquo;s answers are processed on the device and stay there, unless you choose Vaani&rsquo;s online engine.</p>
+      <p>Vaani works with a small wearable recorder. The wearable saves recordings to its own memory card. The app copies them to your phone over an encrypted Bluetooth link, or over the wearable&rsquo;s own Wi&#8209;Fi hotspot for faster transfers. This is a direct link between your two devices and does not use the internet. Vaani can also import an audio file that you pick with Android&rsquo;s file picker. It copies only the file you choose.</p>
+    </section>
+
+    <section class="clause" id="permissions">
+      <h2><span class="idx">04</span>Device permissions</h2>
+      <p>An app asks for a permission only when you first use a feature that needs it. Data from a permission is used for that feature only.</p>
+      <table class="tbl">
+        <thead><tr><th scope="col">Permission</th><th scope="col">Why an app may ask for it</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Permission">Camera, photos and media</td><td data-label="Why an app may ask for it">To add or read an image you choose</td></tr>
+          <tr><td data-label="Permission">Microphone</td><td data-label="Why an app may ask for it">For voice input, processed on the device</td></tr>
+          <tr><td data-label="Permission">Notifications</td><td data-label="Why an app may ask for it">To remind you about tasks, or to show the progress of downloads and transcription</td></tr>
+          <tr><td data-label="Permission">Nearby devices (Bluetooth)</td><td data-label="Why an app may ask for it">Vaani, to pair with and sync from your wearable</td></tr>
+          <tr><td data-label="Permission">Location, on Android 11 and older only</td><td data-label="Why an app may ask for it">Android requires it to scan for Bluetooth devices. Vaani never reads your location</td></tr>
+          <tr><td data-label="Permission">Wi&#8209;Fi control</td><td data-label="Why an app may ask for it">Vaani, to join your wearable&rsquo;s own hotspot for faster transfers</td></tr>
+          <tr><td data-label="Permission">Internet</td><td data-label="Why an app may ask for it">To download AI models, and to reach Sarvam AI if you turn it on in Vaani</td></tr>
+        </tbody>
+      </table>
+      <p>You can turn any permission off in Android Settings &rarr; Apps &rarr; the app &rarr; Permissions. The feature that needs it stops working, and the rest of the app keeps working.</p>
+    </section>
+
+    <section class="clause" id="internet">
+      <h2><span class="idx">05</span>Internet use and AI model downloads</h2>
+      <p>Some apps need an AI model file that is too large to ship inside the app. The app downloads it when you first need it, from a public host such as Hugging Face or GitHub. Like any download, that request shows the host your device&rsquo;s IP address and basic technical details, such as the app version. The host handles that under its own privacy policy. The download sends none of your content. Once the model is on your device, AI features work without an internet connection.</p>
+      <p>Some models on Hugging Face require an access token. Vaani lets you enter your own token. It is stored encrypted on your device and sent only to Hugging Face with the download.</p>
+    </section>
+
+    <section class="clause" id="sarvam">
+      <h2><span class="idx">06</span>Optional online feature: Sarvam AI in Vaani</h2>
+      <p>Vaani transcribes and summarises your recordings on your device by default. In Settings you can switch transcription, or summaries and chat, to Sarvam AI, an online speech and language service based in India. This stays off until you choose it and enter your own Sarvam API key.</p>
+      <p>When it is on, Vaani sends the following straight from your phone to Sarvam AI over an encrypted HTTPS connection:</p>
+      <ul>
+        <li>the audio of each recording you transcribe with Sarvam AI;</li>
+        <li>the transcript, to create its title, summary, key points and to&#8209;dos;</li>
+        <li>your chat questions, with the excerpts of your notes used to answer them.</li>
+      </ul>
+      <p>None of this passes through us. Sarvam AI processes it under its own terms and its <a href="https://www.sarvam.ai/privacy-policy" rel="noopener noreferrer">privacy policy</a>. Your API key is stored encrypted on your device using the Android Keystore and is sent only to Sarvam AI. To stop, switch the engines back to on&#8209;device in Settings or remove your key.</p>
+    </section>
+
+    <section class="clause" id="third-party">
+      <h2><span class="idx">07</span>Third&#8209;party services</h2>
+      <p>Our apps contain no advertising, analytics, crash&#8209;reporting or tracking tools, and no social sign&#8209;in. The only online services an app can contact are the model hosts in <a href="#internet">section 05</a> and, if you turn it on, Sarvam AI in <a href="#sarvam">section 06</a>.</p>
+      <p>Google Play distributes the apps and handles installs and updates. Google may collect information about your device and how you use Google Play, as described in the <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a>. If you allow Android to share usage and diagnostics, Google may show us anonymous, aggregated crash and performance statistics in the Play Console. These statistics contain nothing you created in the app.</p>
+    </section>
+
+    <section class="clause" id="backups">
+      <h2><span class="idx">08</span>Device backups</h2>
+      <p>If Android backup is turned on, Android may include app data in your device&rsquo;s backup to your Google Account. Google creates and stores that backup under your account&rsquo;s settings, and we cannot access it. You can turn backup off in Android Settings &rarr; Google &rarr; Backup. Vaani turns Android backup off, so its data is not copied to your Google Account.</p>
+    </section>
+
+    <section class="clause" id="sharing">
+      <h2><span class="idx">09</span>Sharing and selling</h2>
+      <p>We do not share, sell or rent personal data, because we never receive any. For the same reason we have nothing to hand over in response to a legal request. When you turn on Sarvam AI in Vaani, your phone sends data directly to Sarvam AI at your request, as <a href="#sarvam">section 06</a> describes.</p>
+    </section>
+
+    <section class="clause" id="retention">
+      <h2><span class="idx">10</span>Keeping and deleting your data</h2>
+      <p>Data stays on your device until you delete it. You can delete it in three ways:</p>
+      <ul>
+        <li>delete individual items inside the app, where the app offers this;</li>
+        <li>clear the app&rsquo;s storage in Android Settings &rarr; Apps &rarr; the app &rarr; Storage &rarr; Clear storage;</li>
+        <li>uninstall the app.</li>
+      </ul>
+      <p>Recordings on the Vaani wearable stay on its memory card until you delete them from the app&rsquo;s Device screen or erase the card. We hold no copy, so there is nothing for us to delete and no account to close. For audio or text you sent to Sarvam AI, Sarvam AI&rsquo;s privacy policy explains how long it keeps it.</p>
+    </section>
+
+    <section class="clause" id="security">
+      <h2><span class="idx">11</span>Security</h2>
+      <p>Your data is protected by Android&rsquo;s app sandbox and by the device encryption built into modern Android phones. We recommend using a screen lock. Vaani encrypts the link to its wearable and stores API keys with the Android Keystore. Because nothing is sent to us, there is no server copy that could be exposed in a breach.</p>
+    </section>
+
+    <section class="clause" id="children">
+      <h2><span class="idx">12</span>Children</h2>
+      <p>Our apps are general&#8209;audience apps and are not directed at children. Because they collect no personal data from anyone, they collect none from children.</p>
+    </section>
+
+    <section class="clause" id="rights">
+      <h2><span class="idx">13</span>Your rights</h2>
+      <p>Data protection laws, including India&rsquo;s Digital Personal Data Protection Act 2023, the EU and UK GDPR, and the California Consumer Privacy Act, give you rights to access, correct and delete personal data a company holds about you. We hold none, so there is nothing to provide. The data on your device stays under your control. For data you sent to Sarvam AI through Vaani, contact Sarvam AI. You are welcome to contact us with any question.</p>
+    </section>
+
+    <section class="clause" id="changes">
+      <h2><span class="idx">14</span>Changes to this policy</h2>
+      <p>If an app ever starts collecting data or sending it off your device in a new way, we will update this policy and the app&rsquo;s Data safety section on Google Play before that version is released. The &ldquo;Last updated&rdquo; date at the top of this page shows the latest change.</p>
+    </section>
+
+    <section class="clause" id="contact">
+      <h2><span class="idx">15</span>Contact</h2>
+      <dl class="contact">
+        <div><dt>Developer</dt><dd>Sanjiv Kumar Pandit · Axion Labs · India</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:contact@axionlabs.live">contact@axionlabs.live</a></dd></div>
+        <div><dt>Website</dt><dd><a href="https://imsanjiv.in/">imsanjiv.in</a></dd></div>
+      </dl>
+    </section>
+
+  </div>
+</main>
+
+<footer class="foot band--soft">
+  <div class="wrap">
+    <div class="foot__bar" style="margin-top:0">
+      <span class="meta">© 2026 SANJIV KUMAR PANDIT · AXION LABS</span>
+      <span class="meta">IMSANJIV.IN/PRIVACY</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
